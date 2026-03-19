@@ -30,17 +30,11 @@
     </div>
   </header>
 
-  <!-- SECTION 1 -->
-  <section class="hero img1"></section>
-
-  <!-- SECTION 2 -->
-  <section class="hero img2"></section>
-
-  <!-- SECTION 3 -->
-  <section class="hero img3"></section>
-
-  <!-- SECTION 4 -->
-  <section class="hero img4"></section>
+  <!-- HERO (4 รูป) -->
+  <section class="hero"><img src="bg1.png"></section>
+  <section class="hero"><img src="bg2.png"></section>
+  <section class="hero"><img src="bg3.png"></section>
+  <section class="hero"><img src="bg4.png"></section>
 
   <!-- TEXT SLIDE -->
   <section class="text-slide">
@@ -59,6 +53,20 @@
       </div>
     </div>
   </section>
+
+  <!-- SCROLL EFFECT -->
+  <script>
+    const sections = document.querySelectorAll('.hero');
+
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          section.classList.add('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
