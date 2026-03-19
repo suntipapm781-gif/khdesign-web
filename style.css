@@ -12,69 +12,86 @@ body {
 
 /* NAVBAR */
 .navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 15px 40px;
-  background: #000;
-  border-bottom: 1px solid #222;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
 }
 
 .logo {
   height: 30px;
 }
 
-/* MENU CENTER */
 .nav-center a {
   margin: 0 15px;
-  text-decoration: none;
   color: #fff;
+  text-decoration: none;
   font-size: 14px;
-  transition: 0.3s;
 }
 
-.nav-center a:hover {
-  color: #aaa;
-}
-
-/* SEARCH */
 .search {
   padding: 6px 12px;
   border-radius: 20px;
   border: none;
-  outline: none;
 }
 
-/* HERO */
+/* HERO (ภาพเต็มจอ) */
 .hero {
-  height: 90vh;
-  background: url("https://images.unsplash.com/photo-1600185365483-26d7a4cc7519") no-repeat center/cover;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* เปลี่ยนรูปตรงนี้ */
+.img1 {
+  background-image: url("https://images.unsplash.com/photo-1600185365483-26d7a4cc7519");
+}
+.img2 {
+  background-image: url("https://images.unsplash.com/photo-1528701800489-20be3c1a7f78");
+}
+.img3 {
+  background-image: url("https://images.unsplash.com/photo-1519744346363-d16cbb0b7f67");
+}
+.img4 {
+  background-image: url("https://images.unsplash.com/photo-1503342217505-b0a15ec3261c");
+}
+
+/* TEXT SLIDE */
+.text-slide {
+  height: 100vh;
   display: flex;
-  align-items: center;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-}
-
-.overlay {
+  align-items: center;
+  scroll-snap-align: start;
   text-align: center;
-  background: rgba(0,0,0,0.5);
-  padding: 40px;
-  border-radius: 10px;
+  background: #000;
 }
 
-.overlay h1 {
-  font-size: 50px;
-  margin-bottom: 10px;
-}
-
-.overlay p {
+.slide h1 {
+  font-size: 60px;
   margin-bottom: 20px;
 }
 
-.overlay button {
-  padding: 10px 25px;
-  background: #fff;
-  color: #000;
-  border: none;
+.slide p {
+  font-size: 18px;
+}
+
+/* SOCIAL */
+.social i {
+  font-size: 30px;
+  margin: 10px;
   cursor: pointer;
-  font-weight: bold;
 }
