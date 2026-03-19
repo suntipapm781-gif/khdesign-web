@@ -117,9 +117,9 @@ body {
 
 /* ช่องค้นหา */
 .search {
-  height: 40px;
+  height: 60px;
   padding: 0 15px;
-  font-size: 14px;
+  font-size: 20px;
   border-radius: 20px;
 }
 
