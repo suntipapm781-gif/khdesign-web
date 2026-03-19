@@ -48,16 +48,16 @@ body {
 
 /* เปลี่ยนรูปตรงนี้ */
 .img1 {
-  background-image: url("https://images.unsplash.com/photo-1600185365483-26d7a4cc7519");
+  background-image: url("bg1.png");
 }
 .img2 {
-  background-image: url("https://images.unsplash.com/photo-1528701800489-20be3c1a7f78");
+  background-image: url("bg2.png");
 }
 .img3 {
-  background-image: url("https://images.unsplash.com/photo-1519744346363-d16cbb0b7f67");
+  background-image: url("bg3.png");
 }
 .img4 {
-  background-image: url("https://images.unsplash.com/photo-1503342217505-b0a15ec3261c");
+  background-image: url("bg4.png");
 }
 
 /* TEXT SLIDE */
