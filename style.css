@@ -18,8 +18,8 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
 }
 
 .logo {
@@ -39,25 +39,34 @@ body {
   border: none;
 }
 
-/* HERO (ภาพเต็มจอ) */
+/* HERO */
 .hero {
+  position: relative;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
 }
 
-/* เปลี่ยนรูปตรงนี้ */
-.img1 {
-  background-image: url("bg1.png");
+/* รูปภาพ */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 เต็มจอแบบ Nike */
+  transition: transform 1.5s ease, opacity 1s ease;
+  opacity: 0.7;
 }
-.img2 {
-  background-image: url("bg2.png");
+
+/* overlay มืด */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
 }
-.img3 {
-  background-image: url("bg3.png");
-}
-.img4 {
-  background-image: url("bg4.png");
+
+/* เอฟเฟกต์ */
+.hero.active img {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* TEXT SLIDE */
