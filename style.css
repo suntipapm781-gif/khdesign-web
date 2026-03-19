@@ -218,3 +218,13 @@ nav {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
