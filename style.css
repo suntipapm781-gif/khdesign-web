@@ -10,53 +10,107 @@ body {
   color: #fff;
 }
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
+  top: 0;
   width: 100%;
+  height: 90px;
   z-index: 1000;
+
   display: flex;
   justify-content: space-between;
-  padding: 15px 40px;
-  background: rgba(0,0,0,0.6);
+  align-items: center;
+  padding: 0 40px;
+
+  background: rgba(0, 0, 0, 0.9); /* 🔥 เข้มขึ้น */
   backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  height: 80px; /* ปรับขนาดตรงนี้ */
-  width: auto;
+  height: 80px;
 }
 
+/* เมนูกลาง */
 .nav-center a {
-  margin: 0 15px;
+  margin: 0 20px;
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 30px;
+  transition: 0.3s;
 }
 
+.nav-center a:hover {
+  color: #aaa;
+}
+
+/* ช่องค้นหา */
 .search {
-  padding: 6px 12px;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 20px;
   border-radius: 20px;
   border: none;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #000;
+  position: relative;
+  scroll-snap-align: start;
 }
 
-/* รูปภาพ */
+/* รูป */
 .hero img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 🔥 พอดีจอ ไม่ crop ไม่ zoom */
+  object-fit: contain;
+  animation: fadeIn 1.2s ease;
 }
 
-/* TEXT SLIDE */
+/* ===== SCROLL SNAP ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+/* ===== SCROLL DOWN ===== */
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  animation: bounce 1.5s infinite;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.scroll-down span {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 3px;
+}
+
+/* ===== TEXT SLIDE ===== */
 .text-slide {
   height: 100vh;
   display: flex;
@@ -92,109 +146,10 @@ body {
   cursor: pointer;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-}
-
-.logo {
-  height: 80px;
-  margin-top: 5px;
-}
-
-/* ปรับ navbar ให้สูงเท่าโลโก้ */
-.navbar {
-  height: 90px;
-  align-items: center;
-}
-
-/* เมนูตรงกลาง */
-.nav-center a {
-  font-size: 30px; /* ขยายตัวหนังสือ */
-  margin: 0 20px;
-}
-
-/* ช่องค้นหา */
-.search {
-  height: 60px;
-  padding: 0 15px;
-  font-size: 20px;
-  border-radius: 20px;
-}
-
-.nav-center a:hover {
-  color: #aaa;
-}
-
-
-/* ===== SCROLL SNAP ===== */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-
-/* ให้แต่ละ hero เต็มจอ */
-.hero {
-  height: 100vh;
-  scroll-snap-align: start;
-  position: relative;
-}
-
-/* ===== SCROLL DOWN ===== */
-.scroll-down {
-  position: absolute;
-  bottom: 40px; /* ขยับขึ้นนิดให้ดูเด่น */
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-align: center;
-  font-size: 28px; /* 🔥 เพิ่มขนาดลูกศร */
-  animation: bounce 1.5s infinite;
-  z-index: 10;
-}
-
-.scroll-down span {
-  display: block;
-  font-size: 12px; /* ข้อความเล็กกว่าลูกศร */
-  opacity: 0.7;
-  letter-spacing: 3px;
-}
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  animation: bounce 1.5s infinite;
-  z-index: 10;
-}
-
-.scroll-down span {
-  display: block;
-  font-size: 10px;
-  opacity: 0.6;
-  letter-spacing: 2px;
-}
-
+/* ===== ANIMATION ===== */
 @keyframes bounce {
   0%, 100% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, 10px); }
-}
-
-
-nav {
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-}
-
-.hero img {
-  animation: fadeIn 1.2s ease;
 }
 
 @keyframes fadeIn {
@@ -206,25 +161,4 @@ nav {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
 }
