@@ -186,3 +186,24 @@ body {
   0%, 100% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, 10px); }
 }
+
+
+nav {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+}
+
+.hero img {
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
