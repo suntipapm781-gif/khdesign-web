@@ -102,3 +102,27 @@ body {
   height: 80px;
   margin-top: 5px;
 }
+
+/* ปรับ navbar ให้สูงเท่าโลโก้ */
+.navbar {
+  height: 90px;
+  align-items: center;
+}
+
+/* เมนูตรงกลาง */
+.nav-center a {
+  font-size: 18px; /* ขยายตัวหนังสือ */
+  margin: 0 20px;
+}
+
+/* ช่องค้นหา */
+.search {
+  height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.nav-center a:hover {
+  color: #aaa;
+}
