@@ -1,79 +1,56 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <title>KHdesign</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 1000;
 
-<body>
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">
-    <img src="logo1.png" alt="logo">
-  </div>
+  padding: 0 40px;
 
-  <ul class="menu">
-    <li><a href="#">หน้าแรก</a></li>
-    <li><a href="#">เสื้อพิมพ์ลาย</a></li>
-    <li><a href="#">เสื้อcotton</a></li>
-    <li><a href="#">สติกเกอร์</a></li>
-    <li><a href="#">ติดต่อเรา</a></li>
-  </ul>
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
 
-  <div class="search">
-    <input type="text" placeholder="ค้นหา">
-  </div>
-</div>
+/* LOGO */
+.logo img {
+  height: 70px;
+}
 
-<!-- HERO SECTION -->
-<section class="hero">
-  <img src="bg1.png" class="bg">
+/* ===== เมนูกลาง (แก้หลัก) ===== */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 40px;
 
-  <div class="hero-text">
-    <h1>KHdesign</h1>
-    <h2>Collection</h2>
-    <p>JERSEY • COTTON • STICKER • MORE</p>
-  </div>
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-  <div class="scroll">
-    <span></span>
-    <p>SCROLL</p>
-  </div>
-</section>
+/* ลิงก์ */
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+  transition: 0.3s;
+}
 
-<!-- SECTION 2 -->
-<section class="section">
-  <img src="bg2.png">
-</section>
+.menu li a:hover {
+  color: #aaa;
+}
 
-<!-- SECTION 3 -->
-<section class="section">
-  <img src="bg3.png">
-</section>
-
-<!-- SECTION 4 -->
-<section class="section">
-  <img src="bg4.png">
-</section>
-
-<script>
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-  const trigger = window.innerHeight * 0.8;
-
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-
-    if (top < trigger) {
-      section.classList.add("show");
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+/* ===== SEARCH ขวา ===== */
+.search input {
+  height: 45px;
+  padding: 0 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+}
