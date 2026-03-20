@@ -37,6 +37,7 @@ body {
   height: 120px;
 }
 
+/* ===== MENU DESKTOP ===== */
 .menu {
   list-style: none;
   display: flex;
@@ -52,6 +53,7 @@ body {
   font-size: 22px;
 }
 
+/* ===== SEARCH ===== */
 .search input {
   height: 45px;
   padding: 0 15px;
@@ -59,7 +61,7 @@ body {
   border: none;
 }
 
-/* hamburger */
+/* ===== HAMBURGER ===== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -125,25 +127,6 @@ body {
   font-size: 11px;
 }
 
-/* ===== OVERLAY ===== */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-  z-index: 998;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
 
@@ -156,23 +139,29 @@ body {
     height: 50px;
   }
 
+  /* 🔥 ซ่อนเมนูจริง */
   .menu {
     position: fixed;
     top: 0;
-    right: -100%; /* สำคัญ */
-    width: 75%;
+    left: 0;
+    width: 100%;
     height: 100vh;
     background: #000;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 35px;
+
+    opacity: 0;
+    visibility: hidden;
     transition: 0.3s;
     z-index: 999;
   }
 
   .menu.active {
-    right: 0;
+    opacity: 1;
+    visibility: visible;
   }
 
   .menu li a {
