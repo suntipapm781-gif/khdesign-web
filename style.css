@@ -5,74 +5,77 @@
   font-family: sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #000;
   color: #fff;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
 /* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 90px;
   z-index: 1000;
-
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 40px;
-
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
 .logo {
-  height: 80px;
-}
-
-/* ===== 🔥 FIX เมนูกลาง ===== */
-.nav-center {
   display: flex;
   align-items: center;
-  gap: 30px;
 }
 
-/* รองรับทั้ง a และ li */
-.nav-center a,
-.nav-center li a {
+.logo img {
+  height: 70px;
+  display: block;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu li a {
   color: #fff;
   text-decoration: none;
   font-size: 22px;
   transition: 0.3s;
 }
 
-/* ถ้าใช้ ul */
-.nav-center ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-}
-
-.nav-center a:hover,
-.nav-center li a:hover {
+.menu li a:hover {
   color: #aaa;
 }
 
-/* ===== ช่องค้นหา ===== */
 .search {
-  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  height: 45px;
   padding: 0 15px;
   font-size: 16px;
   border-radius: 20px;
   border: none;
+  outline: none;
 }
 
 /* ===== HERO ===== */
@@ -84,7 +87,7 @@ body {
   background: #000;
   position: relative;
   scroll-snap-align: start;
-  padding-top: 90px; /* 🔥 กัน navbar บัง */
+  padding-top: 90px;
 }
 
 .hero img {
@@ -94,77 +97,83 @@ body {
   animation: fadeIn 1.2s ease;
 }
 
-/* ===== SCROLL SNAP ===== */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-
-/* ===== SCROLL DOWN ===== */
-.scroll-down {
+.hero-text {
   position: absolute;
-  bottom: 40px;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero-text h2 {
+  font-size: 34px;
+  line-height: 1.1;
+  margin-top: 5px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  color: #fff;
   text-align: center;
-  font-size: 28px;
+  color: #fff;
   animation: bounce 1.5s infinite;
-  z-index: 10;
-  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  z-index: 5;
 }
 
-.scroll-down span {
+.scroll span {
   display: block;
-  font-size: 12px;
-  opacity: 0.7;
+  width: 2px;
+  height: 24px;
+  background: #fff;
+  margin: 0 auto 8px;
+  opacity: 0.8;
+}
+
+.scroll p {
+  font-size: 11px;
   letter-spacing: 3px;
+  opacity: 0.8;
 }
 
-/* ===== TEXT SLIDE ===== */
-.text-slide {
+/* ===== OTHER SECTIONS ===== */
+.section {
   height: 100vh;
   display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-}
-
-.slide {
-  min-width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  scroll-snap-align: start;
-  text-align: center;
   background: #000;
+  scroll-snap-align: start;
 }
 
-.slide h1 {
-  font-size: 60px;
-  margin-bottom: 20px;
-}
-
-.slide p {
-  font-size: 18px;
-}
-
-/* SOCIAL */
-.social i {
-  font-size: 30px;
-  margin: 10px;
-  cursor: pointer;
+.section img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* ===== ANIMATION ===== */
 @keyframes bounce {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, 10px); }
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 
 @keyframes fadeIn {
