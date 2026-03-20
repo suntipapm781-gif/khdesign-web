@@ -34,15 +34,8 @@ body {
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
 .logo img {
   height: 120px;
-  display: block;
-  object-fit: contain;
   transition: 0.3s;
 }
 
@@ -70,11 +63,6 @@ body {
   color: #aaa;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-}
-
 .search input {
   height: 45px;
   padding: 0 15px;
@@ -82,6 +70,13 @@ body {
   border-radius: 20px;
   border: none;
   outline: none;
+}
+
+/* hamburger */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 /* ===== HERO ===== */
@@ -103,42 +98,13 @@ body {
   animation: fadeIn 1.2s ease;
 }
 
-.hero-text {
-  position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: left;
-  z-index: 2;
-}
-
-.hero-text h1 {
-  font-size: 54px;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.hero-text h2 {
-  font-size: 34px;
-  line-height: 1.1;
-  margin-top: 5px;
-}
-
-.hero-text p {
-  font-size: 16px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-}
-
 .scroll {
   position: absolute;
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: #fff;
   animation: bounce 1.5s infinite;
-  z-index: 5;
 }
 
 .scroll span {
@@ -147,22 +113,19 @@ body {
   height: 24px;
   background: #fff;
   margin: 0 auto 8px;
-  opacity: 0.8;
 }
 
 .scroll p {
   font-size: 11px;
   letter-spacing: 3px;
-  opacity: 0.8;
 }
 
-/* ===== OTHER SECTIONS ===== */
+/* ===== SECTION ===== */
 .section {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
   scroll-snap-align: start;
 }
 
@@ -174,21 +137,54 @@ body {
 
 /* ===== ANIMATION ===== */
 @keyframes bounce {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(10px);
-  }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 70px;
+    padding: 0 15px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .logo img {
+    height: 50px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.3s;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .menu li a {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .search {
+    display: none;
   }
 }
