@@ -38,6 +38,12 @@
 
   </div>
 
+  <!-- overlay -->
+  <div class="overlay" onclick="closeMenu()"></div>
+
+  <!-- ปุ่ม X -->
+  <div class="close-btn" onclick="closeMenu()">✕</div>
+
   <!-- HERO -->
   <section class="hero">
     <img src="bg5.png" alt="">
@@ -69,6 +75,14 @@
   <script>
     function toggleMenu() {
       document.querySelector('.menu').classList.toggle('active');
+      document.querySelector('.overlay').classList.toggle('active');
+      document.querySelector('.close-btn').classList.toggle('active');
+    }
+
+    function closeMenu() {
+      document.querySelector('.menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+      document.querySelector('.close-btn').classList.remove('active');
     }
   </script>
 
