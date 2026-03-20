@@ -5,75 +5,75 @@
   <title>KHdesign</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-
-  <!-- ICON -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-left">
-      <img src="logo2.png" class="logo">
-    </div>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="logo1.png" alt="logo">
+  </div>
 
-    <div class="nav-center">
-      <a href="#">หน้าแรก</a>
-      <a href="#">บริการ</a>
-      <a href="#">ผลงาน</a>
-      <a href="#">ติดต่อเรา</a>
-    </div>
+  <ul class="menu">
+    <li><a href="#">หน้าแรก</a></li>
+    <li><a href="#">เสื้อพิมพ์ลาย</a></li>
+    <li><a href="#">เสื้อcotton</a></li>
+    <li><a href="#">สติกเกอร์</a></li>
+    <li><a href="#">ติดต่อเรา</a></li>
+  </ul>
 
-    <div class="nav-right">
-      <input type="text" placeholder="ค้นหา" class="search">
-    </div>
-  </header>
+  <div class="search">
+    <input type="text" placeholder="ค้นหา">
+  </div>
+</div>
 
-  <!-- HERO (4 รูป) -->
+<!-- HERO SECTION -->
 <section class="hero">
-  <img src="bg5.png">
+  <img src="bg1.png" class="bg">
 
-  <div class="scroll-down">
-    ↓
-    <span>SCROLL</span>
+  <div class="hero-text">
+    <h1>KHdesign</h1>
+    <h2>Collection</h2>
+    <p>JERSEY • COTTON • STICKER • MORE</p>
+  </div>
+
+  <div class="scroll">
+    <span></span>
+    <p>SCROLL</p>
   </div>
 </section>
-  <section class="hero"><img src="bg2.png"></section>
-  <section class="hero"><img src="bg3.png"></section>
-  <section class="hero"><img src="bg4.png"></section>
 
-  <!-- TEXT SLIDE -->
-  <section class="text-slide">
-    <div class="slide">
-      <h1>KHDESIGN</h1>
-      <p>DESIGN PRODUCE COTTON DTF STICKER</p>
-    </div>
+<!-- SECTION 2 -->
+<section class="section">
+  <img src="bg2.png">
+</section>
 
-    <div class="slide">
-      <h1>คุณพกไอเดียมา เราออกแบบให้</h1>
-      <div class="social">
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-line"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-tiktok"></i>
-      </div>
-    </div>
-  </section>
+<!-- SECTION 3 -->
+<section class="section">
+  <img src="bg3.png">
+</section>
 
-  <!-- SCROLL EFFECT -->
-  <script>
-    const sections = document.querySelectorAll('.hero');
+<!-- SECTION 4 -->
+<section class="section">
+  <img src="bg4.png">
+</section>
 
-    window.addEventListener('scroll', () => {
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
-          section.classList.add('active');
-        }
-      });
-    });
-  </script>
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  const trigger = window.innerHeight * 0.8;
+
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+
+    if (top < trigger) {
+      section.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
