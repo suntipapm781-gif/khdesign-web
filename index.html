@@ -31,10 +31,15 @@
 
     <!-- hamburger -->
     <div class="hamburger" onclick="toggleMenu()">
-      ☰
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
   </div>
+
+  <!-- overlay -->
+  <div class="overlay" onclick="toggleMenu()"></div>
 
   <!-- HERO -->
   <section class="hero">
@@ -67,6 +72,7 @@
   <script>
     function toggleMenu() {
       document.querySelector('.menu').classList.toggle('active');
+      document.querySelector('.overlay').classList.toggle('active');
     }
   </script>
 
