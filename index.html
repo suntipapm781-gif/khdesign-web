@@ -1,126 +1,89 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>KHdesign</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>KHdesign</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
+  <!-- NAVBAR -->
+  <div class="navbar">
 
-<div class="logo">
-<img src="logo1.png">
-</div>
+    <div class="logo">
+      <img src="logo1.png" alt="">
+    </div>
 
-<ul class="menu">
-<li><a href="#">หน้าแรก</a></li>
-<li><a href="#">เสื้อพิมพ์ลาย</a></li>
-<li><a href="#">เสื้อcotton</a></li>
-<li><a href="#">สติกเกอร์</a></li>
-<li><a href="#">งานวาด</a></li>
-<li><a href="#">ติดต่อเรา</a></li>
-</ul>
+    <ul class="menu">
+      <li><a href="#">หน้าแรก</a></li>
+      <li><a href="#">เสื้อพิมพ์ลาย</a></li>
+      <li><a href="#">เสื้อcotton</a></li>
+      <li><a href="#">สติกเกอร์</a></li>
+      <li><a href="#">งานวาด</a></li>
+      <li><a href="#">ติดต่อเรา</a></li>
+    </ul>
 
-<div class="search">
-<input type="text" placeholder="ค้นหา">
-</div>
+    <div class="search">
+      <input type="text" placeholder="ค้นหา">
+    </div>
 
-<div class="hamburger" onclick="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <!-- hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-</div>
+  </div>
 
-<div class="overlay" onclick="closeMenu()"></div>
-<div class="close-btn" onclick="closeMenu()">✕</div>
+  <!-- overlay -->
+  <div class="overlay" onclick="closeMenu()"></div>
 
+  <!-- ปุ่ม X -->
+  <div class="close-btn" onclick="closeMenu()">✕</div>
 
-<!-- HERO -->
-<section class="hero">
-<img src="bg5.png">
+  <!-- HERO -->
+  <section class="hero">
+    <img src="bg5.png" alt="">
+    <div class="scroll">
+      <span></span>
+      <p>เลื่อนลง</p>
+    </div>
+  </section>
 
-<div class="scroll">
-<span></span>
-<p>เลื่อนลง</p>
-</div>
+  <!-- SECTION -->
+  <section class="section">
+    <img src="bg1.png" alt="">
+  </section>
 
-</section>
+  <section class="section">
+    <img src="bg2.png" alt="">
+  </section>
 
+  <section class="section">
+    <img src="bg3.png" alt="">
+  </section>
 
-<!-- SECTIONS -->
+  <section class="section">
+    <img src="bg4.png" alt="">
+  </section>
 
-<section class="section">
-<img src="bg1.png">
-</section>
+  <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu').classList.toggle('active');
+      document.querySelector('.overlay').classList.toggle('active');
+      document.querySelector('.close-btn').classList.toggle('active');
+    }
 
-<section class="section">
-<img src="bg2.png">
-</section>
-
-<section class="section">
-<img src="bg3.png">
-</section>
-
-<section class="section">
-<img src="bg4.png">
-</section>
-
-
-<!-- SLIDER SECTION -->
-
-<section class="slider-section">
-
-<button class="prev">&#10094;</button>
-
-<div class="slider">
-
-<img src="bg1.png">
-<img src="bg2.png">
-<img src="bg3.png">
-<img src="bg4.png">
-
-</div>
-
-<button class="next">&#10095;</button>
-
-</section>
-
-
-<script>
-
-function toggleMenu(){
-document.querySelector('.menu').classList.toggle('active')
-document.querySelector('.overlay').classList.toggle('active')
-document.querySelector('.close-btn').classList.toggle('active')
-}
-
-function closeMenu(){
-document.querySelector('.menu').classList.remove('active')
-document.querySelector('.overlay').classList.remove('active')
-document.querySelector('.close-btn').classList.remove('active')
-}
-
-
-let slider=document.querySelector(".slider")
-let position=0
-
-document.querySelector(".next").onclick=function(){
-position-=320
-slider.style.transform="translateX("+position+"px)"
-}
-
-document.querySelector(".prev").onclick=function(){
-position+=320
-slider.style.transform="translateX("+position+"px)"
-}
-
-</script>
+    function closeMenu() {
+      document.querySelector('.menu').classList.remove('active');
+      document.querySelector('.overlay').classList.remove('active');
+      document.querySelector('.close-btn').classList.remove('active');
+    }
+  </script>
 
 </body>
 </html>
