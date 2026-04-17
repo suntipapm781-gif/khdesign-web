@@ -70,21 +70,34 @@
 <img src="bg4.png">
 </section>
 
-<!-- SLIDER SECTION -->
+<!-- SLIDER -->
 
 <section class="slider-section">
 
 <button class="slide-btn prev">&#10094;</button>
 
-<div class="slider-wrapper">
+<div class="slider-container">
+
 <div class="slider-track">
 
+<div class="slide">
 <img src="bg1.png">
+</div>
+
+<div class="slide">
 <img src="bg2.png">
+</div>
+
+<div class="slide">
 <img src="bg3.png">
+</div>
+
+<div class="slide">
 <img src="bg4.png">
+</div>
 
 </div>
+
 </div>
 
 <button class="slide-btn next">&#10095;</button>
@@ -92,6 +105,8 @@
 </section>
 
 <script>
+
+/* menu */
 
 function toggleMenu(){
 document.querySelector('.menu').classList.toggle('active')
@@ -105,21 +120,68 @@ document.querySelector('.overlay').classList.remove('active')
 document.querySelector('.close-btn').classList.remove('active')
 }
 
+/* slider */
+
 const track=document.querySelector(".slider-track")
-const next=document.querySelector(".next")
-const prev=document.querySelector(".prev")
+const slides=document.querySelectorAll(".slide")
 
-let position=0
+const nextBtn=document.querySelector(".next")
+const prevBtn=document.querySelector(".prev")
 
-next.onclick=function(){
-position-=320
-track.style.transform="translateX("+position+"px)"
+let index=0
+
+function updateSlide(){
+track.style.transform="translateX(-"+index*100+"%)"
 }
 
-prev.onclick=function(){
-position+=320
-track.style.transform="translateX("+position+"px)"
+function nextSlide(){
+index++
+if(index>=slides.length){
+index=0
 }
+updateSlide()
+}
+
+function prevSlide(){
+index--
+if(index<0){
+index=slides.length-1
+}
+updateSlide()
+}
+
+nextBtn.onclick=nextSlide
+prevBtn.onclick=prevSlide
+
+/* auto slide */
+
+setInterval(nextSlide,4000)
+
+/* click image */
+
+document.querySelectorAll(".slide img").forEach(img=>{
+img.onclick=nextSlide
+})
+
+/* swipe mobile */
+
+let startX=0
+
+track.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX
+})
+
+track.addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50){
+nextSlide()
+}
+
+if(endX-startX>50){
+prevSlide()
+}
+})
 
 </script>
 
