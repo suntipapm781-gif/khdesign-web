@@ -13,7 +13,7 @@
 <div class="navbar">
 
 <div class="logo">
-<img src="./assets/logo1.png">
+<img src="logo1.png">
 </div>
 
 <ul class="menu">
@@ -42,14 +42,18 @@
 
 <!-- HERO -->
 <section class="hero">
-<img src="./assets/bg5.png">
+
+<img src="bg5.png">
+
 <div class="scroll">
 <span></span>
 <p>เลื่อนลง</p>
 </div>
+
 </section>
 
 <!-- SECTION -->
+
 <section class="section">
 <img src="bg1.png">
 </section>
@@ -59,7 +63,7 @@
 </section>
 
 <section class="section">
-<img src="./assets/bg33.png">
+<img src="bg3.png">
 </section>
 
 <section class="section">
@@ -67,11 +71,14 @@
 </section>
 
 <!-- SLIDER -->
-<section class="slider">
 
-<button class="prev" onclick="prevSlide()">❮</button>
+<section class="slider-section">
 
-<div class="slides">
+<button class="slide-btn prev">&#10094;</button>
+
+<div class="slider-container">
+
+<div class="slider-track">
 
 <div class="slide">
 <img src="bg1.png">
@@ -91,11 +98,15 @@
 
 </div>
 
-<button class="next" onclick="nextSlide()">❯</button>
+</div>
+
+<button class="slide-btn next">&#10095;</button>
 
 </section>
 
 <script>
+
+/* menu */
 
 function toggleMenu(){
 document.querySelector('.menu').classList.toggle('active')
@@ -109,27 +120,68 @@ document.querySelector('.overlay').classList.remove('active')
 document.querySelector('.close-btn').classList.remove('active')
 }
 
-let index = 0
-const slides = document.querySelector('.slides')
-const total = document.querySelectorAll('.slide').length
+/* slider */
 
-function showSlide(){
-slides.style.transform = "translateX(" + (-index*100) + "%)"
+const track=document.querySelector(".slider-track")
+const slides=document.querySelectorAll(".slide")
+
+const nextBtn=document.querySelector(".next")
+const prevBtn=document.querySelector(".prev")
+
+let index=0
+
+function updateSlide(){
+track.style.transform="translateX(-"+index*100+"%)"
 }
 
 function nextSlide(){
 index++
-if(index >= total){index = 0}
-showSlide()
+if(index>=slides.length){
+index=0
+}
+updateSlide()
 }
 
 function prevSlide(){
 index--
-if(index < 0){index = total-1}
-showSlide()
+if(index<0){
+index=slides.length-1
+}
+updateSlide()
 }
 
+nextBtn.onclick=nextSlide
+prevBtn.onclick=prevSlide
+
+/* auto slide */
+
 setInterval(nextSlide,4000)
+
+/* click image */
+
+document.querySelectorAll(".slide img").forEach(img=>{
+img.onclick=nextSlide
+})
+
+/* swipe mobile */
+
+let startX=0
+
+track.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX
+})
+
+track.addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX
+
+if(startX-endX>50){
+nextSlide()
+}
+
+if(endX-startX>50){
+prevSlide()
+}
+})
 
 </script>
 
