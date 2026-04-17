@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
 <meta charset="UTF-8">
 <title>KHdesign</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -45,18 +42,14 @@
 
 <!-- HERO -->
 <section class="hero">
-
 <img src="assets/bg5.png">
-
 <div class="scroll">
 <span></span>
 <p>เลื่อนลง</p>
 </div>
-
 </section>
 
 <!-- SECTION -->
-
 <section class="section">
 <img src="assets/bg1.png">
 </section>
@@ -74,14 +67,11 @@
 </section>
 
 <!-- SLIDER -->
+<section class="slider">
 
-<section class="slider-section">
+<button class="prev" onclick="prevSlide()">❮</button>
 
-<button class="slide-btn prev">&#10094;</button>
-
-<div class="slider-container">
-
-<div class="slider-track">
+<div class="slides">
 
 <div class="slide">
 <img src="assets/bg1.png">
@@ -101,9 +91,7 @@
 
 </div>
 
-</div>
-
-<button class="slide-btn next">&#10095;</button>
+<button class="next" onclick="nextSlide()">❯</button>
 
 </section>
 
@@ -121,36 +109,25 @@ document.querySelector('.overlay').classList.remove('active')
 document.querySelector('.close-btn').classList.remove('active')
 }
 
-const track=document.querySelector(".slider-track")
-const slides=document.querySelectorAll(".slide")
+let index = 0
+const slides = document.querySelector('.slides')
+const total = document.querySelectorAll('.slide').length
 
-const nextBtn=document.querySelector(".next")
-const prevBtn=document.querySelector(".prev")
-
-let index=0
-
-function updateSlide(){
-track.style.transform="translateX(-"+index*100+"%)"
+function showSlide(){
+slides.style.transform = "translateX(" + (-index*100) + "%)"
 }
 
 function nextSlide(){
 index++
-if(index>=slides.length){
-index=0
-}
-updateSlide()
+if(index >= total){index = 0}
+showSlide()
 }
 
 function prevSlide(){
 index--
-if(index<0){
-index=slides.length-1
+if(index < 0){index = total-1}
+showSlide()
 }
-updateSlide()
-}
-
-nextBtn.onclick=nextSlide
-prevBtn.onclick=prevSlide
 
 setInterval(nextSlide,4000)
 
