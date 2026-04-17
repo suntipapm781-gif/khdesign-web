@@ -29,7 +29,6 @@
       <input type="text" placeholder="ค้นหา">
     </div>
 
-    <!-- hamburger -->
     <div class="hamburger" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -38,10 +37,7 @@
 
   </div>
 
-  <!-- overlay -->
   <div class="overlay" onclick="closeMenu()"></div>
-
-  <!-- ปุ่ม X -->
   <div class="close-btn" onclick="closeMenu()">✕</div>
 
   <!-- HERO -->
@@ -70,8 +66,25 @@
     <img src="bg4.png" alt="">
   </section>
 
+  <!-- SLIDER SECTION -->
+  <section class="slider-section">
+
+    <button class="prev">&#10094;</button>
+
+    <div class="slider">
+      <img src="bg1.png">
+      <img src="bg2.png">
+      <img src="bg3.png">
+      <img src="bg4.png">
+    </div>
+
+    <button class="next">&#10095;</button>
+
+  </section>
+
   <!-- SCRIPT -->
   <script>
+
     function toggleMenu() {
       document.querySelector('.menu').classList.toggle('active');
       document.querySelector('.overlay').classList.toggle('active');
@@ -83,6 +96,20 @@
       document.querySelector('.overlay').classList.remove('active');
       document.querySelector('.close-btn').classList.remove('active');
     }
+
+    let slider = document.querySelector('.slider');
+    let position = 0;
+
+    document.querySelector('.next').onclick = function(){
+      position -= 420;
+      slider.style.transform = `translateX(${position}px)`;
+    }
+
+    document.querySelector('.prev').onclick = function(){
+      position += 420;
+      slider.style.transform = `translateX(${position}px)`;
+    }
+
   </script>
 
 </body>
